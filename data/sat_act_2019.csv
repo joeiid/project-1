@@ -1,0 +1,52 @@
+state,participation_sat,composite_score_sat,participation_act,composite_score_act,region
+Alabama,0.07,1143,1.0,18.9,South
+Alaska,0.41,1097,0.38,20.1,West
+Arizona,0.31,1134,0.73,19.0,West
+Arkansas,0.06,1141,1.0,19.3,South
+California,0.63,1065,0.23,22.6,West
+Colorado,1.0,1024,0.27,23.8,West
+Connecticut,1.0,1046,0.22,25.5,North
+Delaware,1.0,985,0.13,24.1,South
+District of Columbia,0.94,975,0.32,23.5,South
+Florida,1.0,999,0.54,20.1,South
+Georgia,0.71,1058,0.49,21.4,South
+Hawaii,0.54,1100,0.8,19.0,West
+Idaho,1.0,993,0.31,22.5,West
+Illinois,1.0,1013,0.35,24.3,Midwest
+Indiana,0.66,1080,0.29,22.5,Midwest
+Iowa,0.03,1244,0.66,21.6,Midwest
+Kansas,0.04,1241,0.72,21.2,Midwest
+Kentucky,0.04,1232,1.0,19.8,South
+Louisiana,0.05,1200,1.0,18.8,South
+Maine,0.99,1013,0.06,24.3,Northeast
+Maryland,0.82,1058,0.28,22.3,South
+Massachusetts,0.81,1120,0.21,25.5,Northeast
+Michigan,1.0,1003,0.19,24.4,Midwest
+Minnesota,0.04,1284,0.95,21.4,Midwest
+Mississippi,0.03,1237,1.0,18.4,South
+Missouri,0.04,1236,0.82,20.8,Midwest
+Montana,0.09,1199,1.0,19.8,West
+Nebraska,0.03,1260,1.0,20.0,Midwest
+Nevada,0.2,1156,1.0,17.9,West
+New Hampshire,0.95,1059,0.14,25.0,Northeast
+New Jersey,0.82,1090,0.25,24.2,Northeast
+New Mexico,0.18,1073,0.63,19.3,West
+New York,0.79,1064,0.22,24.5,Northeast
+North Carolina,0.51,1100,1.0,19.0,South
+North Dakota,0.02,1263,0.96,19.9,Midwest
+Ohio,0.19,1097,1.0,20.0,Midwest
+Oklahoma,0.22,963,1.0,18.9,South
+Oregon,0.51,1112,0.42,21.1,West
+Pennsylvania,0.7,1082,0.17,23.6,Northeast
+Rhode Island,1.0,995,0.12,24.7,Northeast
+South Carolina,0.68,1030,0.78,18.8,South
+South Dakota,0.03,1268,0.75,21.6,South
+Tennessee,0.07,1220,1.0,19.4,South
+Texas,0.68,1022,0.39,20.5,South
+Utah,0.04,1230,1.0,20.3,West
+Vermont,0.66,1106,0.2,24.1,Northeast
+Virginia,0.68,1119,0.21,24.0,South
+Washington,0.7,1074,0.24,22.1,West
+West Virginia,0.99,943,0.49,20.8,South
+Wisconsin,0.03,1283,1.0,20.3,Midwest
+Wyoming,0.03,1238,1.0,19.8,West

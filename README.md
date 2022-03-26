@@ -1,273 +1,59 @@
-# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Project 1: Standardized Test Analysis
-
-### Overview
-
-Our first project in DSI covers:
-- Basic statistics (distributions, confidence intervals, hypothesis testing)
-- Many Python programming concepts
-- Programmatically interacting with files and directories
-- Visualizations
-- EDA
-- Working with Jupyter notebooks for development and reporting
-
-You might wonder if you're ready to start doing data science. While you still have **tons** to learn, there are many aspects of the data science process that you're ready to tackle. Project 1 aims to allow you to practice and demonstrate these skills.
-
-For our first project, we're going to take a look at aggregate SAT and ACT scores and participation rates in the United States. We'll seek to identify trends in the data and combine our data analysis with outside research to address our problem statement.
-
-The SAT and ACT are standardized tests that many colleges and universities in the United States require for their admissions process. This score is used along with other materials such as grade point average (GPA) and essay responses to determine whether or not a potential student will be accepted to the university.
-
-The SAT has two sections of the test: Evidence-Based Reading and Writing and Math ([*source*](https://www.princetonreview.com/college/sat-sections)). The ACT has 4 sections: English, Mathematics, Reading, and Science, with an additional optional writing section ([*source*](https://www.act.org/content/act/en/products-and-services/the-act/scores/understanding-your-scores.html)). They have different score ranges, which you can read more about on their websites or additional outside sources (a quick Google search will help you understand the scores for each test):
-* [SAT](https://collegereadiness.collegeboard.org/sat)
-* [ACT](https://www.act.org/content/act/en.html)
-
-Standardized tests have long been a controversial topic for students, administrators, and legislators. Since the 1940's, an increasing number of colleges have been using scores from students' performances on tests like the SAT and the ACT as a measure for college readiness and aptitude ([*source*](https://www.minotdailynews.com/news/local-news/2017/04/a-brief-history-of-the-sat-and-act/)). Supporters of these tests argue that these scores can be used as an objective measure to determine college admittance. Opponents of these tests claim that these tests are not accurate measures of students potential or ability and serve as an inequitable barrier to entry.
+# ![](https://ga-dash.s3.amazonaws.com/production/assets/lo8go-9f88ae6c9c3871690e33280fcf557f33.png) Project 1: Standardized Test Analysis
 
 ### Problem Statement
 
-Generally speaking, you will be asked to come up with a data science problem. This problem is ultimately up to you, but below are some guidelines/things to consider when crafting a problem statement:
-> 1. Consider your audience. Who is your project going to help? Who will your presentation be geared towards? Establishing your audience first can help you narrow down your scope.
-> 2. Consider the data you will use. Based on the contents of this data, think about some questions you could reasonably answer. These questions should aim to solve some kind of problem.
-> 3. Based on these questions, what would bring some kind value to your audience? This can be business insights, increase sales, make decisions, etc.
-> 4. Put everything from the above steps together into a few sentences that describe the specific problem you are trying to solve and who it will benefit.
-> [Here is a blog post](https://towardsdatascience.com/defining-a-data-science-problem-4cbf15a2a461) about crafting a data science problem statement.
+---
 
-Here are some example prompts if you need inspiration:
-> * The new format for the SAT was released in March 2016. As an employee of the College Board - the organization that administers the SAT - you are a part of a team that tracks statewide participation and recommends where money is best spent to improve SAT participation rates. Your presentation and report should be geared toward non-technical executives with the College Board and you will use the provided data and outside research to make recommendations about how the College Board might work to increase the participation rate in a *state of your choice*.
-> * You work for a school district that has asked you to advise their high school students on what SAT or ACT score they should be aiming for based on their intended area of study or school preferences.
-> * You are hired by the state of California to analyze standardized test performance for various districts in the state and identify trends so they can allocate resources appropriately.
-> * Lately, more and more schools are opting to drop the SAT/ACT requirement for their Fall applications ([*read more about this here*](https://admissions.cornell.edu/news/cornell-university-will-suspend-actsat-testing-requirement-2022-first-year-applicants)). You are hired by a college to advise their admissions team on why this should or should not continue beyond the Fall 2022 applications. (Note: problem statements related to this prompt may not be reasonable to answer just using the data provided. If you want to tackle this one, you may need to find additional data online.)
-> * *Feel free to be creative with your own prompt!*
+This project will examine the relationships between ACT and SAT participation in states and regions. Within the last couple of years levels of participation in multiple states have changed with varying legislative desicions. This project will explore trends in SAT and ACT in 2019 and seeks to identify states that have low SAT participation. This will help identify where the College Board can concentrate in raising participation rates for the SAT.
 
-And here are some example problem statements related to the above prompts. Come up with your own or modify these for your needs, do not just copy the ones given here:
-> * The new format for the SAT was released in March 2016. Since then, levels of participation in multiple states have changed with varying legislative decisions. This project aims to explore trends in SAT and ACT participation for the years 2017-2019 and seeks to identify states that have decreasing SAT participation rates.
-> * High school students often know which colleges they would like to consider, but rarely know what SAT or ACT score they should aim for when applying to these colleges. We wish to explore the schools that have the highest and lowest SAT and ACT score requirements and see if there is a relationship between college prestige and test scores.
-> * The state of California has many school districts. This project aims to identify the districts that have the worst overall student performance on the SAT and ACT tests so the state can recommend programs and allocate resources to these districts in need.
-> * We hypothesize that student performance on these tests is not an indicator of overall academic performance. This project seeks to see if a relationship exists between student GPA and SAT/ACT scores to support or oppose the continuation of these tests as a requirement for college applications.
-> * *Feel free to be creative with your own problem statement!*
+
+### Data
 
 ---
 
-### Datasets
+In this project I chose to use 5 diffrent datasets to show the correlation and define the problem stated above. All of these datasets were data from 2019 for the SAT and ACT.
 
-#### Provided Data
+The SAT dataset has 51 rows that represents all 50 states and 5 columns. The 5 columns identify the states, participation rates that shows the total participation of each state, a total score for the Evidence-Base Reading and Writing section and Math section, and the overall score of all sections summed together.
 
-There are 10 datasets included in the [`data`](./data/) folder for this project. You are required to pick **at least two** of these to complete your analysis. Feel free to use more than two if you would like, or add other relevant datasets you find online.
+The ACT dataset has 51 rows that represents all 50 states and 3 columns. The 3 columns identify the states, participation rates that shows the total participation of each state, a composite score.
 
-* [`act_2017.csv`](./data/act_2017.csv): 2017 ACT Scores by State ([source](https://blog.prepscholar.com/act-scores-by-state-averages-highs-and-lows))
-* [`act_2018.csv`](./data/act_2018.csv): 2018 ACT Scores by State ([source](https://blog.prepscholar.com/act-scores-by-state-averages-highs-and-lows))
-* [`act_2019.csv`](./data/act_2019.csv): 2019 ACT Scores by State ([source](https://blog.prepscholar.com/act-scores-by-state-averages-highs-and-lows))
-* [`act_2019_ca.csv`](./data/act_2019_ca.csv): 2019 ACT Scores in California by School ([source](https://www.cde.ca.gov/ds/sp/ai/) | [data dictionary](https://www.cde.ca.gov/ds/sp/ai/reclayoutact19.asp))
-* [`sat_2017.csv`](./data/sat_2017.csv): 2017 SAT Scores by State ([source](https://blog.collegevine.com/here-are-the-average-sat-scores-by-state/))
-* [`sat_2018.csv`](./data/sat_2018.csv): 2018 SAT Scores by State ([source](https://blog.collegevine.com/here-are-the-average-sat-scores-by-state/))
+The ACT_Region data set has 51 rows and 2 columns. The rows show all the states and the 2 columns show the participation rates and the region that each states is in(Northeast, Midwest, South, West).
+
+The SAT_Region data set has 51 rows and 2 columns. The rows show all the states and the 2 columns show the participation rates and the region that each states is in(Northeast, Midwest, South, West).
+
+
+#### Datasets Used:
+
 * [`sat_2019.csv`](./data/sat_2019.csv): 2019 SAT Scores by State ([source](https://blog.prepscholar.com/average-sat-scores-by-state-most-recent))
-* [`sat_2019_by_intended_college_major.csv`](./data/sat_2019_by_intended_college_major.csv): 2019 SAT Scores by Intended College Major ([source](https://reports.collegeboard.org/pdf/2019-total-group-sat-suite-assessments-annual-report.pdf))
-* [`sat_2019_ca.csv`](./data/sat_2019_ca.csv): 2019 SAT Scores in California by School ([source](https://www.cde.ca.gov/ds/sp/ai/) | [data dictionary](https://www.cde.ca.gov/ds/sp/ai/reclayoutsat19.asp))
-* [`sat_act_by_college.csv`](./data/sat_act_by_college.csv): Ranges of Accepted ACT & SAT Student Scores by Colleges ([source](https://www.compassprep.com/college-profiles/))
+* [`act_2019.csv`](./data/act_2019.csv): 2019 ACT Scores by State ([source](https://blog.prepscholar.com/act-scores-by-state-averages-highs-and-lows))
 
-**Make sure you cross-reference your data with your data sources to eliminate any data collection or data entry issues.**
+#### Data Dictionary 
 
-#### Additional Data
-You are welcome to add any other data sources you find online to support your analysis, but this is **not required**.
+|Feature|Type|Dataset|Description|
+|---|---|---|---|
+|**state**|*obj*|2019 ACT/SAT|States in the United States.| 
+|**participation_sat**|*float*|2019 SAT|2019 SAT participation rates through all 50 states in the United States.|
+|**participation_act**|*float*|2019 ACT|2019 ACT participation rates through all 50 states in the United States.| 
+|**composite_score_sat**|*float*|2019 SAT|2019 SAT scores through all 50 states in the United States.| 
+|**composite_score_sat**|*float*|2019 ACT|2019 ACT scores through all the 50 states in the United States.| 
+|**region**|*obj*|2019 ACT|States seperated by regions.| 
 
----
 
-### Deliverables
-
-All of your projects will comprise of a written technical report and a presentation. As we continue in the course, your technical report will grow in complexity, but for this initial project it will comprise:
-- A Jupyter notebook that describes your data with visualizations & statistical analysis.
-- A README markdown file the provides an introduction to and overview of your project.
-- Your presentation slideshow rendered as a .pdf file.
-**NOTE**: Your entire Github repository will be evaluated as your technical report. Make sure that your files and directories are named appropriately, that all necessary files are included, and that no unnecessary or incomplete files are included.
-
-For your first presentation, you'll be presenting to a **non-technical** audience. You should prepare a slideshow with appropriately scaled visuals to complement a compelling narrative. **Presentation duration will differ by market, so check with your local instructor.**
+### Analysis
 
 ---
 
-### Technical Report Starter Code
+There was strong participation in certain states in regard with the region they were in. States that had high participation rates in SAT would have low participation rates in ACT, and high ACT participation rates ment that state would have a low SAT participation rates. 
 
-Future projects will require you to decide on the entire structure of your technical report. Here, we provide you with [starter code](./code/starter-code.ipynb) in a Jupyter notebook that will help to guide your data exploration and analysis. **If you choose to edit the core structure of this notebook, make sure you don't exclude any of the requested operations**.
+When the states were divided into regions, the regions was taked from the U.S. Census 
+Bureau (https://www2.census.gov/geo/pdfs/maps-data/maps/reference/us_regdiv.pdf), we were able to see that for the SAT the Northeast had a much higher participation greater than 80%, west and south slightly greater than 40%, and the midwest, less than 30%. When we looked at the ACT divided into regions we saw ACT participations high in Midwest with about 70% participation, the south and west over 60% participation, and the less than 20%.
 
----
+It was difficult to get the most accurate analysis with the data we had because their was many factors that came into play. This did not consider if there was certain cities with higher SAT or ACT within the states and instead took the overall comparison per state. It also does not consider that many states are not requiring the SAT or ACT for entrance into Universities and Colleges.
 
-### DSI Project Style Guide and Suggested Resources
-
-[Tim Dwyer](https://www.linkedin.com/in/jtimdwyer/) (former DSI student and TA) put together the following style guide. Note some recommendations are geared toward future projects (which will include modeling and span multiple notebooks), but generally these are great recommendations:
-
-Your projects will become your portfolio. That means that every project that you turn in should be considered part of your resume and a direct reflection of how you are likely to perform as an employee. Take your projects seriously now and you will finish the course with a portfolio that you can feel proud to apply with.
-
-**You do not know where recruiters will focus in your projects. This means that every aspect of your project should be equally exceptional.**
-
-#### Have a structural plan for your project.
-
-Having a plan for your project means more than having multiple notebooks. Notebooks should be separated for a reason.
-
-A great reason for starting a new notebook is that you have completed the task at hand and are moving on to another, possibly related, task.
-
-For example, data collection (i.e. web scraping or querying an API) and storage (saving data to a `.json` or `.csv` file, inserting into a database etc.) could be done in one notebook which is followed by another for data processing and some initial exploratory data analysis.
-
-Somewhere there has to be an explanation of what purpose every single file and directory serves. `README.md` files within different directories are a great place for this.
-
-You should tell the reader what you're doing in a notebook. This sounds repetitive, and it is, but a nice framework for this could be something like the following:
-
-1. At the beginning of each notebook, explain what you're going to do in this notebook and how it is the natural next step from the previous notebook.
-1. At the end of each notebook, explain what you have just done in this very notebook.
-1. After explaining what was done in this notebook, give an idea of where you're going (what you'll be doing in the next notebook).
-1. Every time you start a new task or make a new decision for modeling, data processing and cleaning, write at least one sentence explaining why you did this. I do not mean that every line of code requires a sentence of explanation. You will have to use your judgment to measure the "Number of decisions you've made in your code".
-
-#### Edit your work.
-1. Remember all those explanations scattered throughout your notebooks? Ensure that they are grammatically correct and without spelling errors.
-1. You should also edit your code! Are you importing every module you've ever used in every notebook? Stop doing that! Only import modules you use. Are you defining functions/variables that you never use? Stop doing that! By re-reading and editing your code you can find these unnecessary (and incredibly confusing) pieces of code and remove them. There are some tools that will do this for you automatically, but these tools are not very well developed for notebooks.
-
-#### Assume that the reader does not know what you're doing or why.
-1. These projects are a part of your public portfolio. They will, with any luck, be read by technical recruiters and hiring managers. Assume that the reader is a technically minded person who is, explicitly, not a data scientist.
-1. The reason for this framing is not that a data scientist will never read your projects, rather that others may as well. If you write for the more general audience, more people will be able to -- at least somewhat -- understand your work.
-
-#### README
-1. A README was mentioned above as a way to describe the contents of each of the files and directories in your repository. READMEs will render in Github for any directory they're in (so feel free to include one in **every** directory).
-1. **Use markdown in your README.** It takes only a minute to add this formatting and results in a *much* clearer document. Don't know how to markdown? [Check this out](https://help.github.com/articles/basic-writing-and-formatting-syntax/).
-1. The landing page for your project (the main directory) should have an executive summary. What should this include?...
-
-#### Executive Summary
-1. Problem statement
-    - **S**pecific
-    - **M**easurable
-    - **A**chievable
-    - **R**elevant
-    - **T**ime-bound
-2. Description of data
-    - REQUIRED: Size (samples & features)
-    - REQUIRED: Source (provide a link to the original source if possible, or describe how/where you acquired it)
-    - REQUIRED: Target (classification/regression/unsupervised)
-    - RECOMMENDED: Data dictionary (describe every feature in your data set, or at least those features that were prominent in your final model)
-    - Consider including a plot or two from your EDA
-3. Model performance on training/test data
-    - Did you fit many models? Feel free to summarize some of your scores here.
-    - Consider useing a markdown table to make results easy to review.
-    - It should be clear which model you chose for production and why.
-4. Primary findings/conclusions/recommendations
-    - These should follow from your project
-    - You should provide an answer to your problem statement
-5. Next steps
-    - **Always** focus on the positive (it's not what you did wrong, it's what you look forward to improving).
-    - Is your model ready for production? Probably not, but you can comment on how it might get there.
-    - Does this project demonstrate skills that you think could be applied to similar problems?
-
-#### Please write your code in REUSABLE functions.
-
-Writing code in functions serves many purposes, but for the purpose of these projects I want to focus on two.
-
-1. Writing functions to perform individual tasks will clarify, to you as well as the reader, what each line of code is doing. Just like how we use separate notebooks to allow readers to keep distinct tasks separated in their minds, functions can serve an identically helpful organizational purpose.
-1. When you are interviewing, you will absolutely be expected to write functions since that is how code is, in practice, written and used. It is genuinely a very important part of writing code.
-
-Here's a link on [how to give a good lightning talk](https://www.semrush.com/blog/16-ways-to-prepare-for-a-lightning-talk/), which provides some good recommendations for short presentations.
-
-[Here's a great summary](https://towardsdatascience.com/storytelling-with-data-a-data-visualization-guide-for-business-professionals-97d50512b407) of the main points of the book _Storytelling with Data_, which I can't recommend enough. [Here's a blog post](http://www.storytellingwithdata.com/blog/2017/8/9/my-guiding-principles) by the author about his guiding principles for visualizations.
+### Conclusion
 
 ---
 
-### Submission
-
-Your technical report will be hosted on Github Enterprise. Make sure it includes:
-
-- A README.md (that isn't this file)
-- Jupyter notebook(s) with your analysis (renamed to describe your project)
-- Data files
-- Presentation slides
-- Any other necessary files (images, etc.)
-
-**Check with your local instructor for how they would like you to submit your repo for review.**
-
----
-
-### Presentation Structure
-
-- **Must be within time limit established by local instructor.**
-- Use Google Slides or some other visual aid (Keynote, Powerpoint, etc).
-- Consider the audience. Assume you are presenting to a non-technical audience (executives with the College Board, school administrators, admissions counselors, State officials, etc.).
-- Start with the **data science problem**.
-- Use visuals that are appropriately scaled and interpretable.
-- Talk about your procedure/methodology (high level, **CODE IS ALWAYS INAPPROPRIATE FOR A NON-TECHNICAL AUDIENCE**).
-- Talk about your primary findings.
-- Make sure you provide **clear recommendations** that follow logically from your analyses and narrative and answer your data science problem.
-
-Be sure to rehearse and time your presentation before class.
-
----
-
-### Rubric
-Your local instructor will evaluate your project (for the most part) using the following criteria.  You should make sure that you consider and/or follow most if not all of the considerations/recommendations outlined below **while** working through your project.
-
-**Scores will be out of 21 points based on the 7 items in the rubric.** <br>
-*3 points per section*<br>
-
-| Score | Interpretation |
-| --- | --- |
-| **0** | *Project fails to meet the minimum requirements for this item.* |
-| **1** | *Project meets the minimum requirements for this item, but falls significantly short of portfolio-ready expectations.* |
-| **2** | *Project exceeds the minimum requirements for this item, but falls short of portfolio-ready expectations.* |
-| **3** | *Project meets or exceeds portfolio-ready expectations; demonstrates a thorough understanding of every outlined consideration.* |
-
-**Project Organization**
-- Are modules imported correctly (using appropriate aliases)?
-- Are data imported/saved using relative paths?
-- Does the README provide a good executive summary of the project?
-- Is markdown formatting used appropriately to structure notebooks?
-- Are there an appropriate amount of comments to support the code?
-- Are files & directories organized correctly?
-- Are there unnecessary files included?
-- Do files and directories have well-structured, appropriate, consistent names?
-
-**Clarity of Message**
-- Is the problem statement clearly presented?
-- Does a strong narrative run through the project?
-- Does the student provide appropriate context to connect individual steps back to the overall project?
-- Is it clear how the final recommendations were reached?
-- Are the conclusions/recommendations clearly stated?
-
-**Python Syntax and Control Flow**
-- Is care taken to write human readable code?
-- Is the code syntactically correct (no runtime errors)?
-- Does the code generate desired results (logically correct)?
-- Does the code follows general best practices and style guidelines?
-- Are Pandas functions used appropriately?
-- Does the student demonstrate mastery masking in Pandas?
-- Does the student demonstrate mastery sorting in Pandas?
-
-**Data Cleaning and EDA**
-- Does the student fix data entry issues?
-- Are data appropriately labeled?
-- Are data appropriately typed?
-- Are datasets combined correctly?
-- Are appropriate summary statistics provided?
-- Are steps taken during data cleaning and EDA framed appropriately?
-
-**Visualizations**
-- Are the requested visualizations provided?
-- Do plots accurately demonstrate valid relationships?
-- Are plots labeled properly?
-- Plots interpreted appropriately?
-- Are plots formatted and scaled appropriately for inclusion in a notebook-based technical report?
-
-**Research and Conceptual Understanding**
-- Were useful insights gathered from outside sources?
-- Are sources clearly identified?
-- Does the student provide appropriate interpretation with regards to descriptive and inferential statistics?
-
-**Presentation**
-- Is the problem statement clearly presented?
-- Does a strong narrative run through the presentation building toward a final conclusion?
-- Are the conclusions/recommendations clearly stated?
-- Is the level of technicality appropriate for the intended audience?
-- Is the student substantially over or under time?
-- Does the student appropriately pace their presentation?
-- Does the student deliver their message with clarity and volume?
-- Are appropriate visualizations generated for the intended audience?
-- Are visualizations necessary and useful for supporting conclusions/explaining findings?
-
-In order to pass the project, students must earn a minimum score of 1 for each category.
-- Earning below a 1 in one or more of the above categories would result in a failing project.
-- While a minimum of 1 in each category is the required threshold for graduation, students should aim to earn at least an average of 1.5 across each category. An average score below 1.5, while it may be passing, means students may want to solicit specific feedback in order to significantly improve the project before showcasing it as part of a portfolio or the job search.
-
-### REMEMBER:
-
-This is a learning environment and you are encouraged to try new things, even if they don't work out as well as you planned! While this rubric outlines what we look for in a _good_ project, it is up to you to go above and beyond to create a _great_ project. **Learn from your failures and you'll be prepared to succeed in the workforce**.
+Overall, we were able to identify a clear trend with participation in states favoriting SAT and other favorting ACT. In every graph we plotted, it seemed that states tend to support one test over the other with no even participation. 
+The relationship with the regions was the same as the states, favorting one over the other.
+My recommendation for the College Board for increasing SAT participation would be to focus on states and regions with high participation rates in ACT and low participation rates with SAT. These would be states located in the Midwest, South, and West. By focusing in those areas we would be able to prioritize funds into states that could use the increase in participation.
